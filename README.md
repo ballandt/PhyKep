@@ -11,6 +11,12 @@ Simulationen zu den Keplerschen Gesetzen:
    3. Gravitationsmodell von 1. übernehmen
 
 ---
+## Veränderungen
+
+Veränderungen bitte in separatem branch.
+Jede Änderung so schnell wie möglich pushen. 
+
+---
 ## Zeitplan
 
 * Do: erste Version 2. Simulation
