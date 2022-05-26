@@ -19,12 +19,14 @@ import matplotlib.animation
 
 
 # Anfangswerte
+v = np.array([-6e3, -23e3])   # [m/s] Ausgangsgeschwindigkeit Erde
 
+# === Veränderbar ===
 m_sonne = 1.989e30            # [kg] Sonnenmasse
 m_erde = 5.97e24              # [kg] Erdmasse
 
+# === Veränderung nicht empfohlen ===
 d = np.array([149.598e9, 0])  # [m] Distanz Sonne - Erde
-v = np.array([-6e3, -23e3])   # [m/s] Ausgangsgeschwindigkeit Erde
 
 tag = 60 * 60 * 24            # [s] Tag in Sekunden
 dt = 1 * tag                  # [s] Zeitschritt
@@ -33,22 +35,23 @@ G = 6.673e-11                 # [m^3/(kg*s^2)] Gravitationskonstante
 
 x = []                        # Liste für x-Positionswerte
 y = []                        # Liste für y-Positionswerte
-
-# Erdkreis
-kreis_x = 0.5e10 * np.sin(np.linspace(0, 2*np.pi))
-kreis_y = 0.5e10 * np.cos(np.linspace(0, 2*np.pi))
+# === ===
 
 # Animation Grundlage
 
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 
+# Erdkreis
+kreis_x = 0.5e10 * np.sin(np.linspace(0, 2*np.pi))
+kreis_y = 0.5e10 * np.cos(np.linspace(0, 2*np.pi))
+# Plotte Erdkreis
+kreis, = ax.plot([], [])
+
 # Plotte Sonne
 ax.plot(1e10 * np.sin(np.linspace(0, 2*np.pi)),
         1e10*np.cos(np.linspace(0, 2*np.pi)))
 
-# Plotte Erdkreis
-kreis, = ax.plot([], [])
 
 # Plotte Planetenorbit
 plot, = ax.plot(x, y)
