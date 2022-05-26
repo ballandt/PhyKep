@@ -19,9 +19,9 @@ Jede Änderung so schnell wie möglich pushen.
 ---
 ## Zeitplan
 
-* Do: erste Version 2. Simulation
-* Fr: Stabile Version
-* Sa: Dokumentation
+* Do: erste Version 2. Simulation [x]
+* Fr: Stabile Version [ ]
+* Sa: Dokumentation [ ]
 
 ---
 ### Kepler I
