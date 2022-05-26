@@ -55,8 +55,9 @@ kreis, = ax.plot([], [])
 plot, = ax.plot(x, y)
 
 # Plotte Geschwindigkeit
-v_text = ax.text(-2e11, 2e11, "")
+# v_text = ax.text(-2e11, 2e11, "")
 t_text = ax.text(-2e11, 1.7e11, "")
+a_text = ax.text(-2e11, 2e11, "A = ")
 
 # Achseneinstellungen
 ax.set_xlim(-2.5e11, 2.5e11)
@@ -75,7 +76,7 @@ def update(n):
     Berechnet die neue Position und gibt die aktualisierten Plots zurück.
     """
     # Greife auf globale Variablen zu
-    global v, d, x, y, abstand, laenge, f_position, flaechen_punkte, flaeche
+    global v, d, x, y, abstand, laenge, f_position, flaechen_punkte, flaeche, a_text
     F = -G * m_sonne * m_erde / np.linalg.norm(d)**3 * d
     a = F / m_erde
     v = a*dt + v
@@ -84,22 +85,26 @@ def update(n):
     y.append(d[1])
     # Fläche
     if n == f_position:
+        a_text.set_text("A = ")
         inter = d
     elif f_position <= n < f_position + laenge:
         flaechen_punkte.append(d)
         flaeche_poly.set_xy(flaechen_punkte)
+        if n > f_position + 2:
+            teilflaeche = sPoly(flaechen_punkte).area
+            a_text.set_text(f"A = {np.format_float_scientific(teilflaeche, precision=5)} $m^2$")
         b = (x[-1], y[-1])
     elif n == f_position + laenge:
-        flaeche = sPoly(flaechen_punkte).area
-        print(flaeche)
+        poly = sPoly(flaechen_punkte)
+        flaeche = poly.area
+        a_text.set_text(f"A = {np.format_float_scientific(flaeche, precision=5)} $m^2$")
         flaechen_punkte = [(0, 0)]
         f_position += abstand
     # Plot-Aktualisierungen
     plot.set_data(x, y)
     kreis.set_data(kreis_x + d[0], kreis_y + d[1])
-    v_text.set_text(f"v = {np.linalg.norm(v):5.0f} m/s")
     t_text.set_text(f"t = {n} d")
-    return plot, kreis, v_text, t_text, flaeche_poly
+    return plot, kreis, t_text, flaeche_poly, a_text
 
 
 # Ausführung Animation (Aktualisierung alle 30 Millisekunden)
