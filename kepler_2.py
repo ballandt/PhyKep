@@ -5,12 +5,12 @@ Adrian Scheibe, Camillo Ballandt
 Berechnet die Sektoren der durch das newtonsche Gravitationsgesetz gewonnenen
 Daten und vergleicht die Flächen.
 """
-from math import hypot
+from math import hypot, sin, acos
 import numpy as np
-from scipy.integrate import trapezoid
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import matplotlib.path as pth
+from matplotlib.patches import Polygon
+from shapely.geometry import Polygon as sPoly
 import matplotlib.animation
 
 
@@ -33,7 +33,6 @@ y = []                        # Liste für y-Positionswerte
 abstand = 60                  # [d]
 laenge = 30                   # [d]
 f_position = abstand
-dist = []
 
 
 # Erdkreis
@@ -65,9 +64,10 @@ ax.set_ylim(-2.5e11, 2.5e11)
 plt.gca().set_aspect('equal', adjustable='box')
 
 # Fläche
-flaeche_x = [0]
-flaeche_y = [0]
-flaeche, = ax.plot(flaeche_x, flaeche_y)
+flaechen_punkte = [(0, 0)]
+flaeche_poly = Polygon(flaechen_punkte, facecolor="red")
+flaeche = 0
+ax.add_patch(flaeche_poly)
 
 
 def update(n):
@@ -75,7 +75,7 @@ def update(n):
     Berechnet die neue Position und gibt die aktualisierten Plots zurück.
     """
     # Greife auf globale Variablen zu
-    global v, d, x, y, abstand, laenge, f_position, dist, flaeche_x, flaeche_y
+    global v, d, x, y, abstand, laenge, f_position, flaechen_punkte, flaeche
     F = -G * m_sonne * m_erde / np.linalg.norm(d)**3 * d
     a = F / m_erde
     v = a*dt + v
@@ -86,23 +86,20 @@ def update(n):
     if n == f_position:
         inter = d
     elif f_position <= n < f_position + laenge:
-        dist.append(hypot(d[0], d[1])**2)
-        flaeche_x.append(d[0])
-        flaeche_y.append(d[1])
-        flaeche.set_data(flaeche_x, flaeche_y)
+        flaechen_punkte.append(d)
+        flaeche_poly.set_xy(flaechen_punkte)
+        b = (x[-1], y[-1])
     elif n == f_position + laenge:
-        t = np.linspace(f_position, f_position+laenge, 1)
-        print(trapezoid(dist), t)
-        f_position = n + abstand
-        flaeche_x.append(0)
-        flaeche_y.append(0)
-        flaeche.set_data(flaeche_x, flaeche_y)
+        flaeche = sPoly(flaechen_punkte).area
+        print(flaeche)
+        flaechen_punkte = [(0, 0)]
+        f_position += abstand
     # Plot-Aktualisierungen
     plot.set_data(x, y)
     kreis.set_data(kreis_x + d[0], kreis_y + d[1])
     v_text.set_text(f"v = {np.linalg.norm(v):5.0f} m/s")
     t_text.set_text(f"t = {n} d")
-    return plot, kreis, v_text, t_text, flaeche
+    return plot, kreis, v_text, t_text, flaeche_poly
 
 
 # Ausführung Animation (Aktualisierung alle 30 Millisekunden)
