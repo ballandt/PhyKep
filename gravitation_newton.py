@@ -53,7 +53,8 @@ kreis, = ax.plot([], [])
 # Plotte Planetenorbit
 plot, = ax.plot(x, y)
 
-# Plotte Geschwindigkeit
+# Plotte Zeit, Geschwindigkeit
+t_text = ax.text(-2e11, 1.7e11, "")
 v_text = ax.text(-2e11, 2e11, "")
 
 # Achseneinstellungen
@@ -62,7 +63,7 @@ ax.set_ylim(-2.5e11, 2.5e11)
 plt.gca().set_aspect('equal', adjustable='box')
 
 
-def update(_):
+def update(n):
     """Animationsupdate
     Berechnet die neue Position und gibt die aktualisierten Plots zurück.
     """
@@ -75,8 +76,11 @@ def update(_):
     y.append(d[1])
     plot.set_data(x, y)
     kreis.set_data(kreis_x + d[0], kreis_y + d[1])
-    v_text.set_text(f"v = {np.linalg.norm(v):5.0f} m/s")
-    return plot, kreis, v_text
+    v_text.set_text(
+        f"v = {int(round(np.linalg.norm(v), -3))} $\\frac{{m}}{{s}}$"
+    )
+    t_text.set_text(f"t = {n} d")
+    return plot, kreis, t_text, v_text
 
 
 # Ausführung Animation (Aktualisierung alle 30 Millisekunden)
