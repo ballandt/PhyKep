@@ -10,6 +10,8 @@ F = G * m1 * m2 / norm(d)**3 * d
 a = F / m
 v = a * dt + v0
 d = v * dt + d0
+
+Sonne und Erde werden als Kreise dargestellt, der Orbit der Erde als Graph.
 """
 
 import numpy as np
@@ -71,12 +73,14 @@ def update(n):
     Berechnet die neue Position und gibt die aktualisierten Plots zurück.
     """
     global v, d, x, y  # Greife auf globale Variablen zu
+    # Gravitationsmodell
     F = -G * m_sonne * m_erde / np.linalg.norm(d)**3 * d
     a = F / m_erde
     v = a*dt + v
     d = v*dt + d
     x.append(d[0])  # Zum Anfügen von Werten sind Listen besser als arrays
     y.append(d[1])
+    # Plot-Aktualisierungen
     plot.set_data(x, y)
     kreis.set_data(kreis_x + d[0], kreis_y + d[1])
     v_text.set_text(
