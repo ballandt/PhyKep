@@ -4,7 +4,7 @@ Simulationen zu den Keplerschen Gesetzen:
 
 1. Gravitationsgesetz
    1. Nachweis [Kepler I](#kepler-i)
-   2. Grundlage 2.
+   2. Grundlage 2. Gesetz
 2. [Kepler II](#kepler-ii)
    1. Flächen konstant
    2. Schneller in Sonnennähe
@@ -22,6 +22,7 @@ Jede Änderung so schnell wie möglich pushen.
 - [x] Do: erste Version 2. Kepler
 - [x] Fr: Stabile Version
 - [x] Sa: Dokumentation
+- [ ] Sa/So: Tests
 
 ---
 ### Kepler I
@@ -39,3 +40,10 @@ Jede Änderung so schnell wie möglich pushen.
 
 > Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich
 > wie die dritten Potenzen der großen Halbachsen ihrer Bahnen
+
+---
+## Quellen
+
+* [https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html](https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html)
+  * Entfernung Erde - Sonne
+  * Geschwindigkeit Erde
