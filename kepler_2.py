@@ -5,8 +5,8 @@ Adrian Scheibe, Camillo Ballandt
 Berechnet die Sektoren der durch das newtonsche Gravitationsgesetz gewonnenen
 Daten und vergleicht die Flächen.
 
-Die Fläche wird als Polygon vereinfacht, dargestellt und der Flächeninhalt
-berechnet.
+Sonne und Erde werden als Kreise dargestellt. Orbit als Graph. Fläche als
+Polygon. Die Berechnung der Fläche erfolgt ebenfalls mit Polygonen.
 """
 import numpy as np
 import matplotlib as mpl
@@ -22,6 +22,7 @@ import matplotlib.animation
 d = np.array([149.598e9, 0])    # [m] Distanz Sonne - Erde
 v = np.array([0, -29.29e3])  # [m/s] Ausgangsgeschwindigkeit Erde (0, 29e3)
 
+# Einstellungen für die Flächenmessungen
 abstand = 60                    # [d] Abstand zwischen Flächenmessungen
 laenge = 30                     # [d] Länge der Flächenmessungen
 f_position = abstand            # [d] Position des Flächenbeginns
