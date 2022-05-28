@@ -22,7 +22,7 @@ Jede Änderung so schnell wie möglich pushen.
 - [x] Do: erste Version 2. Kepler
 - [x] Fr: Stabile Version
 - [x] Sa: Dokumentation
-- [ ] Sa/So: Tests
+- [x] Sa/So: Tests
 
 ---
 ### Kepler I
@@ -47,3 +47,5 @@ Jede Änderung so schnell wie möglich pushen.
 * [https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html](https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html)
   * Entfernung Erde - Sonne
   * Geschwindigkeit Erde
+* Oliver Natt. Physik mit Python. Springer Spektrum. 2020
+  * Grundlagen Simulation und Animation mit Python
