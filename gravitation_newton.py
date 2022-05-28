@@ -12,6 +12,9 @@ v = a * dt + v0
 d = v * dt + d0
 
 Sonne und Erde werden als Kreise dargestellt, der Orbit der Erde als Graph.
+
+Genauer für größere Anfangsgeschwindigkeiten (im Bereich |v0| = 30 km/s) und
+Winkel der Gerade Erde-Sonne und v0 etwa 90°.
 """
 
 import numpy as np
@@ -22,7 +25,7 @@ import matplotlib.animation
 
 # Anfangswerte
 # === Veränderbar ===
-v = np.array([-6e3, -23e3])   # [m/s] Ausgangsgeschwindigkeit Erde
+v = np.array([-18e3, 23e3])   # [m/s] Ausgangsgeschwindigkeit Erde
 
 # === Veränderung nicht empfohlen ===
 m_sonne = 1.989e30            # [kg] Sonnenmasse
