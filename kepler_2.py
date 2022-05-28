@@ -7,6 +7,9 @@ Daten und vergleicht die Flächen.
 
 Sonne und Erde werden als Kreise dargestellt. Orbit als Graph. Fläche als
 Polygon. Die Berechnung der Fläche erfolgt ebenfalls mit Polygonen.
+
+Genauigkeit des Orbits siehe gravitation_newton.py. Fläche bleibt auch sonst
+genau.
 """
 import numpy as np
 import matplotlib as mpl
