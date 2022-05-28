@@ -21,13 +21,13 @@ import matplotlib.animation
 
 
 # Anfangswerte
+# === Veränderbar ===
 v = np.array([-6e3, -23e3])   # [m/s] Ausgangsgeschwindigkeit Erde
 
-# === Veränderbar ===
+# === Veränderung nicht empfohlen ===
 m_sonne = 1.989e30            # [kg] Sonnenmasse
 m_erde = 5.97e24              # [kg] Erdmasse
 
-# === Veränderung nicht empfohlen ===
 d = np.array([149.598e9, 0])  # [m] Distanz Sonne - Erde
 
 tag = 60 * 60 * 24            # [s] Tag in Sekunden
