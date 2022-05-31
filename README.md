@@ -1,5 +1,9 @@
 # Simulationen Keplersche Gesetze
 
+![IMAGE](./README.image.png)
+
+---
+
 Simulationen zu den Keplerschen Gesetzen:
 
 1. Gravitationsgesetz
