@@ -8,8 +8,8 @@ Daten und vergleicht die Flächen.
 Sonne und Erde werden als Kreise dargestellt. Orbit als Graph. Fläche als
 Polygon. Die Berechnung der Fläche erfolgt ebenfalls mit Polygonen.
 
-Genauigkeit des Orbits siehe gravitation_newton.py. Fläche bleibt auch sonst
-für Anzeige.
+Genauigkeit des Orbits siehe gravitation_newton.py. Die Genauigkeit der Fläche
+hängt von der Genauigkeit der Bahn ab.
 """
 import numpy as np
 import matplotlib as mpl
@@ -96,9 +96,10 @@ def berechnung_pos():
 
 def update(n):
     """Animationsupdate
-    Berechnet die neue Position und gibt die aktualisierten Plots zurück.
+    Trägt die durch `berechne_pos` ermittelte Erdbahn in das Diagramm ein,
+    zeichnet die überstrichene Fläche und berechnet diese.
     """
-    global f_position, flaechen_punkte
+    global f_position, flaechen_punkte  # Greife auf globale Variablen zu
     pos = berechnung_pos()
     x.append(pos[0])  # Zum Anfügen von Werten sind Listen besser als arrays
     y.append(pos[1])
