@@ -109,7 +109,7 @@ def update(n):
     # Erdform
     kreis.set_data(kreis_x + pos[0], kreis_y + pos[1])
     # Zeit
-    t_text.set_text(f"t = {n} d")
+    t_text.set_text(f"t = {n} $d$")
     # Fläche
     if f_position <= n < f_position + laenge:
         # Erde befindet sich im eingestellten Flächenbereich
