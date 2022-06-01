@@ -27,8 +27,8 @@ G = 6.673e-11                 # [m^3/(kg*s^2)] Gravitationskonstante
 
 # Veränderbar
 d = np.array([149.598e9, 0])    # [m] Distanz Sonne - Erde
-v = np.array([6e3, 11e3])  # [m/s] Ausgangsgeschwindigkeit Erde (0, 29e3)
-dt = stunde // 2                    # [s] Zeitschritt
+v = np.array([0, 29.29e3])      # [m/s] Ausgangsgeschwindigkeit Erde (0, 29e3)
+dt = stunde // 2                # [s] Zeitschritt
 
 # Einstellungen für die Flächenmessungen
 abstand = 60                    # [d] Abstand zwischen Flächenmessungen

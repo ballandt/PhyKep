@@ -30,7 +30,7 @@ G = 6.673e-11                 # [m^3/(kg*s^2)] Gravitationskonstante
 
 # Anfangswerte
 # === Veränderbar ===
-v = np.array([6e3, 11e3])   # [m/s] Ausgangsgeschwindigkeit Erde
+v = np.array([0, 29.29e3])    # [m/s] Ausgangsgeschwindigkeit Erde
 dt = stunde // 2              # [s]   Zeitschritt für Berechnung
 
 # === Veränderung nicht empfohlen ===
