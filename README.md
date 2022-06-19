@@ -22,9 +22,9 @@ und den [**Kepler'schen Gesetzen**](#keplersche-gesetze). Dargestellt wird die B
 Sonne durch eine *matplotlib*-Animation. Ein Erdkreis bewegt sich dabei zur simulierten Zeit
 um die Sonne.
 
-Dabei soll in der ersten Simulation die sich einstellende **Kreis- bzw. Ellipsenform**
+Dabei soll die erste Simulation die sich einstellende **Kreis- bzw. Ellipsenform**
 des Erdorbits zeigen. Die zweite Simulation demonstriert die Gültigkeit des [zweiten
-Kepler'schen Gesetzes](#kepler-ii) demonstrieren in dem die **überzogenen Flächen**
+Kepler'schen Gesetzes](#kepler-ii) in dem die **überzogenen Flächen**
 berechnet werden.
 
 ## Mathematisches Modell
@@ -46,10 +46,9 @@ Gleichungen entstehen
 <b>d</b> = <b>v</b> &centerdot; &Delta;t
 </i>
 
-(Fett geschriebene Formelzeichen stellen vektorielle Größen dar.)
+<sub>(Fett geschriebene Formelzeichen stellen vektorielle Größen dar.)</sub>
 
-> ⚠️Die Genauigkeit der Simulation verschlechtert sich bei sehr ausgeprägter
-> Ellipsenform und hohen Geschwindigkeiten bei großer Richtungsänderung.
+> ⚠️Die Genauigkeit der Simulation verschlechtert sich bei sehr ausgeprägter Ellipsenform und hohen Geschwindigkeiten bei großer Richtungsänderung.
 
 
 
@@ -72,7 +71,13 @@ Fall müssen die benötigten Packages
 ### Ausführung
 
 Mit der eingerichteten Umgebung können die Dateien einfach über die IDE oder mit dem 
-Kommandozeilenbefehl `python gravitation_newton.py` etc. ausgeführt werden.
+Kommandozeilenbefehl 
+
+```commandline
+python gravitation_newton.py
+python kepler_2.py
+```
+ausgeführt werden.
 
 ---
 
